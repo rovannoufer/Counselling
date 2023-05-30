@@ -103,3 +103,142 @@ showSlide(currentSlide);
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customer Care Website</title>
+	<!-- <link rel="stylesheet" type="text/css" href="./style2.css"> -->
+</head>
+<body>
+
+	<main>
+		<section>
+			<h2>Contact Us</h2>
+			<form action="/submit" name="contactForm" onsubmit="return validateForm()" method="POST">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name"><br>
+
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email"><br>
+                 
+                <label for="number">Number:</label>
+				<input type="text" id="number" name="number" maxlength="10"><br>
+
+				<label for="message">Message:</label>
+				<textarea id="message" name="message"></textarea><br>
+                
+				<button type="button" name="button" onclick="validateForm()">Submit</button> 
+				<!-- <input type="submit" value="Submit"> -->
+			</form>
+		</section>
+	</main>
+
+    <script>
+    
+	function validateForm() {
+	var name = document.forms["contactForm"]["name"].value;
+	var email = document.forms["contactForm"]["email"].value;
+	var message = document.forms["contactForm"]["message"].value;
+	var numberInput = document.forms["contactForm"]["number"].value;
+	if (name == "") {
+		alert("Please enter your name.");
+		return false;
+	}
+
+	// if (email == "") {
+	// 	alert("Please enter your email address.");
+	// 	return false;bdbvdsv
+	// }
+
+	if (message == "") {
+		alert("Please enter a message.");
+		return false;
+	}
+      
+    if (numberInput === "") {
+        alert("Please enter a number.");
+      } else if (isNaN(numberInput)) {
+        alert("Invalid number. Please enter a numeric value.");
+      } else if(numberInput.length !== 10){
+        alert("Number should have exactly 10 characters.");
+      }
+    // if (isNaN(number)){  
+	// 	alert("Please enter a nnumber");  
+	// 	return false;  
+	//   } 
+	var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	if (!emailRegex.test(email)) {
+		alert("Please enter a valid email address.");
+		return false;
+	}
+
+	return true;
+    
+   
+ }
+	</script>
+
+	<!-- <script src="validator.js"></script>
+    <script src="./connectivity.js"></script> -->
+</body>
+</html>
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+form input, form textarea {
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+form input[type="submit"] {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+	background-color: #555;
+}
+main {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+h2 {
+	margin-bottom: 10px;
+}
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+}
+
+
+
